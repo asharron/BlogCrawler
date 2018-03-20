@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1> All Blogs: <h1>
+{% for blog in blogs %}
+
+<form action="{{ url_for('removeSite') }}" method='POST'>
+	<ul>
+	<li>Student Name:  {{ blog.student }} </li>
+	<li>Blog URL: {{ blog.url }} </li>
+	</ul>
+	{{ form.csrf_token() }}
+	{{ form.studentName(value = blog.student) }}
+	{{ form.submit() }}
+</form>
+
+
+{% endfor %}
+
+{% endblock %}

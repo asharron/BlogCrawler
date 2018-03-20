@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>This is the admin page</h1>
+<form method='post' action=" {{ url_for('addSite') }}">
+	{{ form.hidden_tag() }}
+	{{ form.name.label }} {{ form.name() }}
+	{{ form.url.label }} {{ form.url() }}
+	{{ form.titletag.label }} {{ form.titletag() }}
+	{{ form.titleclass.label }} {{ form.titleclass() }}
+	{{ form.bodytag.label }} {{ form.bodytag() }}
+	{{ form.bodyclass.label }} {{ form.bodyclass() }}
+	{{ form.submit() }}  
+</form>
+
+{% endblock %}

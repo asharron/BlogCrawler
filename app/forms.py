@@ -2,7 +2,9 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField, SelectField, RadioField, TextAreaField, HiddenField, BooleanField
 from wtforms.validators import DataRequired, Email
 
-#form to login
+#All the forms used for the website
+
+
 class LoginForm(FlaskForm):
     email = StringField("Email",validators=[DataRequired("Please Enter Your Email"),Email("Please Enter a Valid Email")])
     password = PasswordField("Password", validators=[DataRequired("Please Enter a Password")])
@@ -21,3 +23,8 @@ class AddSite(FlaskForm):
     titleclass = StringField("What class or attribute does the title tag have?")
     bodytag = StringField("What tag is used for the content of the blog?")
     bodyclass = StringField("What class or attribute does the body tag have?")
+    submit = SubmitField("Add Site")
+
+class DeleteSite(FlaskForm):
+    studentName = HiddenField()
+    submit = SubmitField("Remove Site")
